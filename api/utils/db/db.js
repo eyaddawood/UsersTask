@@ -1,9 +1,10 @@
 const Sequelize = require("sequelize");
+require('dotenv').config();
 
 
-const DB_Connection = new Sequelize('Company', 'eyad', 'eyad12345', {
-    host: '127.0.0.1',
-    port: 5432,
+const DB_Connection = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER, process.env.DB_PASSWORD, {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
     dialect: 'postgres',
     logging: false,
   });
@@ -12,15 +13,6 @@ const DB_Connection = new Sequelize('Company', 'eyad', 'eyad12345', {
 
 
 
-DB_Connection.authenticate()
-.then(() => {
-  console.log("Connection with DB has been established successfully.");
-})
-.catch((err) => {
-  console.error("Unable to connect to the database:", err);
-});
-
-DB_Connection.sync({alter: false});
 
 module.exports = {
   db: DB_Connection
