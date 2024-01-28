@@ -10,10 +10,14 @@ const userCreationSchema = Joi.object({
 
 });
 
+const userLoginSchema = Joi.object({
+  Email: Joi.string().required(),
 
+});
 
 
 module.exports = {
   "/user": userCreationSchema,
+  "/user/login": userLoginSchema,
 
 };
