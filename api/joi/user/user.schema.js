@@ -1,11 +1,12 @@
 const Joi = require("@hapi/joi");
 
 const userCreationSchema = Joi.object({
-  email: Joi.string().email().required(),
-  name: Joi.string().required(),
-  mobile: Joi.string().required(),
-  country: Joi.string().required(),
-  age: Joi.number().required(),
+  id: Joi.number(),
+  Email: Joi.string().email().required(),
+  Name: Joi.string().required(),
+  Mobile: Joi.string().required(),
+  Country: Joi.string().required(),
+  Age: Joi.number().required(),
 
 });
 

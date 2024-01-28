@@ -5,6 +5,9 @@ const db = require("./api/utils/db/db");
 
 app.use(express.json());
 
+
+
+
 const port = process.env.PORT || 8080;
 
 const server = http.createServer(app);
