@@ -46,7 +46,7 @@ exports.getUserById = async (req, res) => {
         const id = req.params.id;
 
         if(!id) return res.status(400).send({ message: "Id is required" });
-      const user = await databaseInstance.db.User.findAll({
+      const user = await databaseInstance.db.User.findOne({
         where: {
           id: id,
         },
@@ -69,7 +69,6 @@ exports.getUserById = async (req, res) => {
       // Send a success response
       res.status(200).json({ message: "User created successfully" });
     } catch (error) {
-      console.error(error);
     handleApiError(res, error, "createUser");
       
     }
