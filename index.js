@@ -5,9 +5,15 @@ const db = require("./api/utils/db/db");
 
 app.use(express.json());
 
+
+
+
 const port = process.env.PORT || 8080;
 
 const server = http.createServer(app);
+
+
+require("./api/services/user/user.routes")(app);
 
 db.db.authenticate()
   .then(() => {
